@@ -127,13 +127,11 @@ def get_cell_bgcolor(sheet,i,j):
 	bgcolor = '#'+str(bcolor.rgb)[2:]
 	
 	fcolor = sheet[cell_index].font.color
-	print sheet[cell_index].value
-	print cell_index
 	print fcolor
 	try:
 		font_color = '#'+str(fcolor.rgb)[2:]
 	except:
-		font_color = ''	
+		font_color = '#000000'	
 	return str(bgcolor),str(font_color)
 
 
@@ -174,9 +172,9 @@ with open('html_table.html','w') as f:
 			if bgcolor == '#000000':
 				bgcolor = '#ffffff'
 			if (i,j) not in hidden_cells:
-				f.write("<td rowid = '"+ str(i) +"' colid = '"+ str(j) +"' bgcolor = '"+bgcolor+"'>"+"<font color = '"+font_color+"'>"+value+"</font>"+"</td>\n")
+				f.write("<td rowid = '"+ str(i) +"' colid = '"+ str(j) +"' bgcolor = '"+bgcolor+"' style = 'color:"+font_color+";'>"+value+"</td>\n")
 			elif str((i,j)) in head_cells:
-				f.write("<td rowid = '"+ str(i) +"' colid = '"+ str(j) +"' bgcolor = '"+bgcolor+"' colspan = '"+cell_dict[head_cells[str((i,j))]]["colspan"]+"' rowspan = '"+cell_dict[head_cells[str((i,j))]]["rowspan"]+"'>"+"<font color = '"+font_color+"'>"+value+"</font>"+"</td>\n")
+				f.write("<td rowid = '"+ str(i) +"' colid = '"+ str(j) +"' bgcolor = '"+bgcolor+"' colspan = '"+cell_dict[head_cells[str((i,j))]]["colspan"]+"' rowspan = '"+cell_dict[head_cells[str((i,j))]]["rowspan"]+"' style = 'color:"+font_color+";'>"+value+"</td>\n")
 		f.write("\n</tr>\n")	
 	f.write("</table>\n")
 	f.write("</div>\n")
