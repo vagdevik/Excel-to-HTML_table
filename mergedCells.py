@@ -178,7 +178,7 @@ with open('html_table.html','w') as f:
 		f.write("\n</tr>\n")	
 	f.write("</table>\n")
 	f.write("</div>\n")
-	f.write('<script>\nfunction myFunction() {\nhtml = "";\nvar t = $(".selected");\nfor (var i=0;i<t.length;i++){\nconsole.log("******");\n	console.log($(".selected")[i].outerHTML);\nconsole.log("@@@@@@");\nhtml = html + $(".selected")[i].outerHTML;\n}\n	console.log("-----");\n	console.log(html);\n}\n</script>')
+	f.write('<script>\nfunction myFunction() {\nhtml = "";\nvar t = $(".selected");\nif (t.length == 0){\nalert("Please select your cells from the table first.");\n}\nfor (var i=0;i<t.length;i++){\nconsole.log("******");\n	console.log($(".selected")[i].outerHTML);\nconsole.log("@@@@@@");\nhtml = html + $(".selected")[i].outerHTML;\n}\n	console.log("-----");\n	console.log(html);\n}\n</script>')
 	f.write("</body>\n")
 	f.write("</html>\n")
 	f.close()
