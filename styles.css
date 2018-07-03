@@ -1,0 +1,21 @@
+th, td {
+    border: 1px solid black;
+    padding: 10px 25px;
+}
+th {
+    background-color: lightblue;
+}
+.selected {
+    background-color: #4f6487;
+}
+.selectionbox {
+    position: absolute;
+    background: transparent;
+    border: 1px dotted #000;
+}
+input {
+    border: 1px solid #F0F0F0;
+    width: 4em;
+}
+
+
