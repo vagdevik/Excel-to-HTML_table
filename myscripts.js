@@ -148,13 +148,6 @@ $.fn.extend({
                 // may cause components embedded in the control to fail to respond to click events
                 // Instead, we attempt to suss intent in the mouseup handler
 			
-				//--------------------------------------------------------------------------------------------------
-				/*$("#myDiv").on("click", function (evt) {
-				    if (evt.ctrlKey)
-			        $(this).toggleClass(options.highlightClass);
-				});*/
-				//--------------------------------------------------------------------------------------------------
-
                 var startY = e.pageY,
                     startX = e.pageX,
                     newX,
@@ -204,7 +197,7 @@ $.fn.extend({
                             .filter('td').addClass(options.highlightClass);
                         $selection.remove();
                     } else {
-                        // Minimal movement. Process as click. 
+                        //// Minimal movement. Process as click. 
                         $selection.remove();
                         // The event target is actually the overlay. Get the element underneath to process click
                         var targetElement = document.elementFromPoint(e.clientX, e.clientY);

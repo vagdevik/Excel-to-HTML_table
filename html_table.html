@@ -21,9 +21,12 @@
 </form>
 <br>
 <center>
-<button onclick="myFunction()">Select these cells</button>
+<button onclick="myFunction()">Form a mini table</button>
 </center>
 <br>
+<div id = 'selectedTable'></div>
+</center>
+<br><br>
 <div id = "myDiv">
 <table border='1'>
 <tr rowid = '0'>
@@ -766,19 +769,31 @@ Temas de conversación sugeridos:
 </div>
 <script>
 function myFunction() {
-html = "";
-var t = $(".selected");
+html = '';
+var t = $('.selected');
 if (t.length == 0){
-alert("Please select your cells from the table first.");
+alert('Please select your cells from the table first.');
 }
+else{
+htmlCode = ''
+var prevRow = parseInt($('.selected')[0].getAttribute('rowid'));
+htmlCode = htmlCode + "<table border = '1'><tr rowid = '" + prevRow + "'>"
 for (var i=0;i<t.length;i++){
-console.log("******");
-	console.log($(".selected")[i].outerHTML);
-console.log("@@@@@@");
-html = html + $(".selected")[i].outerHTML;
+var curr = $('.selected')[i];
+var currRow = parseInt(curr.getAttribute('rowid'));
+if(currRow>prevRow){
+prevRow = currRow;
+htmlCode = htmlCode + "</tr><tr "+"rowid = '"+prevRow+"'>";
 }
-	console.log("-----");
-	console.log(html);
+html = html + curr.outerHTML;
+htmlCode = htmlCode + curr.outerHTML;
 }
-</script></body>
+htmlCode = htmlCode + '</table>';
+}
+console.log(htmlCode);
+string = '<p>You selected the following table</p>';
+document.getElementById('selectedTable').innerHTML = string + htmlCode;
+$('.selected').removeClass('selected');}
+</script>
+</body>
 </html>
