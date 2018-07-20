@@ -21,11 +21,11 @@ A sub-table of your selected cells will appear above the actual big table.
 
 Install the following modules before running the code:
 
-> import openpyxl
+> pip install openpyxl
 
-> import xlrd
+> pip install xlrd
 
-> import xlsxwriter
+> pip install xlsxwriter
 
 ### This is to display an excel sheet into a HTML table
 inspiration from : http://jsfiddle.net/0g68yyjc/122/
