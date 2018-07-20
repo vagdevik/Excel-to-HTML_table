@@ -1,4 +1,4 @@
-
+// This js code is for the selection of cells from html table
 
     $(window).load(function(){
       

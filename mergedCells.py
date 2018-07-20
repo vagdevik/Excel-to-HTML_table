@@ -13,10 +13,8 @@
 from openpyxl.utils import coordinate_from_string,column_index_from_string
 import xlrd
 import xlsxwriter
-import dominate
 from datetime import datetime
 from openpyxl import load_workbook,styles
-from dominate.tags import *
 import sys
 reload(sys)
 
